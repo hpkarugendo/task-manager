@@ -13,7 +13,7 @@ public class Employee {
 	private Long id;
 	@Column(unique = true, nullable = false)
 	private String username;
-	private String name, password;
+	private String name, password, position;
 	@ManyToOne
 	private Department department;
 
@@ -21,11 +21,12 @@ public class Employee {
 		super();
 	}
 
-	public Employee(String username, String name, String password, Department department) {
+	public Employee(String username, String name, String password, String position, Department department) {
 		super();
 		this.username = username;
 		this.name = name;
 		this.password = password;
+		this.position = position;
 		this.department = department;
 	}
 
@@ -61,6 +62,14 @@ public class Employee {
 		this.password = password;
 	}
 
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
 	public Department getDepartment() {
 		return department;
 	}
@@ -71,7 +80,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", department=" + department.getName() + "]";
+		return "Employee [id=" + id + ", username=" + username + ", name=" + name + ", password=" + password
+				+ ", position=" + position + ", department=" + department.getName() + "]";
 	}
 
 }

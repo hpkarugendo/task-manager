@@ -15,4 +15,5 @@ public interface TodoRepo extends JpaRepository<Todo, Long>{
 	Optional<Todo> findByNameIgnoreCase(String name);
 	void deleteById(Long id);
 	List<Todo> findByDepartment(Department department);
+	
 }
